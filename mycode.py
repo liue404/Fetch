@@ -99,7 +99,6 @@ class Spending:
                     if i == 0:
                         i += 1
                         continue
-                    print(row)
                     company = row[0]
                     points = int(row[1])
                     timestamp = row[2]
@@ -115,11 +114,6 @@ class Spending:
             self.merge_negetive(all_transac_his)
 
     def find_oldest_points(self):
-
-        # res_key, res_transac_his = list(self.dic_company_transac.keys())[0], list(self.dic_company_transac.values())[0]
-        # item = list(self.dic_company_transac.items())
-        # res_time = res_transac_his[0][0][0]
-
         init_flag = True
         for company, all_transac_his in self.dic_company_transac.items():
             if len(all_transac_his[0]) == 0:
@@ -182,15 +176,8 @@ def main():
 
     S = Spending(spending_points)
     S.read_transaction_data()
-    S.print_usable_points()
-
-    # S.print_transac_his()
     S.merge_negative_transaction_his()
-    S.print_usable_points()
-
-    # S.print_transac_his()
     S.comsume_points()
-    # S.print_transac_his()
     S.print_usable_points()
 
 if __name__ == '__main__':
